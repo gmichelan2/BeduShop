@@ -1,6 +1,5 @@
 package com.example.bedushop
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +27,6 @@ class ShopRecyclerAdapter(
         fun bind(product:Product){
             productTitle.text=product.title
             productPrice.text="$ ${product.price.toString()}"
-            //productDescription.text=product.description
             productRate.rating=product.rate as Float
             productImage.load(product.image)
 
