@@ -1,0 +1,37 @@
+<resources>
+    <!--Login fragment-->
+    <string name="app_name">Bedu Shop</string>
+    <string name="email_hint">Correo electrónico</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="boton_sesion">INICIAR SESIÓN</string>
+    <string name="registro">Registrate aquí</string>
+    <string name="email_error">Debe ingresar un correo</string>
+    <string name="password_error">Debe ingresar un password</string>
+
+    <!--Register fragment-->
+    <string name="titulo_registro">Regístrate</string>
+    <string name="nombre_registro">Nombre completo</string>
+    <string name="telefono_registro">Teléfono</string>
+    <string name="boton_registro">Registrarse</string>
+    <string name="interlinea_registro">----- o -----</string>
+    <string name="name_error">Debe ingresar un nombre</string>
+    <string name="phone_error">Debe ingresar un teléfono</string>
+
+
+    <!-- product_list_fragment -->
+    <string name="product_list_title">Productos cerca de ti</string>
+
+    <!--product_detail fragment-->
+    <string name="product_detail_new">Nuevo</string>
+    <string name="product_detail_financing">En 6 meses sin interés de</string>
+    <string name="product_detail_address_delivery">Disponible en tu domicilio</string>
+    <string name="product_detail_delivey">Entrega mañana</string>
+    <string name="product_detail_add_cart_button">Agregar al carrito</string>
+
+    <!--Bottom nav menu-->
+    <string name="nav_home">Home</string>
+    <string name="nav_cart">Carrito</string>
+    <string name="nav_profile">Perfil</string>
+    <!--General fragment-->
+    <string name="hello_blank_fragment">Blank fragment</string>
+</resources>

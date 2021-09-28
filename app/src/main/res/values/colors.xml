@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="naranja">#f03c15</color>
+    <color name="fondo">#172126</color>
+
+    <!--Colores propios de beduApp-->
+    <color name="bedu_black">#172126</color>
+    <color name="bedu_black200">#3e484e</color>
+    <color name="bedu_black700">#000000</color>
+
+    <color name="bedu_orange">#f03c15</color>
+    <color name="bedu_orange200">#ff7244</color>
+    <color name="bedu_orange700">#b50000</color>
+</resources>
