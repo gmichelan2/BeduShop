@@ -6,6 +6,7 @@
     <string name="boton_sesion">INICIAR SESIÓN</string>
     <string name="registro">Registrate aquí</string>
     <string name="email_error">Debe ingresar un correo</string>
+    <string name="email_match_error">Formato incorrecto de email</string>
     <string name="password_error">Debe ingresar un password</string>
 
     <!--Register fragment-->
@@ -34,4 +35,26 @@
     <string name="nav_profile">Perfil</string>
     <!--General fragment-->
     <string name="hello_blank_fragment">Blank fragment</string>
+
+    <!--User profile fragment-->
+
+    <string name="userprofile_user_text">Usuario</string>
+    <string name="userprofile_email_text">gaston@bedu.org</string>
+    <string name="userprofile_logout">CERRAR SESIÓN</string>
+
+    <!--User profile list item -->
+    <string name="userprofile_item_text">Elemento 1</string>
+
+    <!--    User profile navigation-->
+    <string name="user_profile_navigation_add">Agregar dirección</string>
+    <string name="user_profile_navigation_actual_address">Ubicación Actual</string>
+    <string name="user_profile_navigation_actual_address_next">Juan Escutia 293, San Simón, Benito Juárez, 03660 Ciudad de México, CDMX, México Ciudad de México</string>
+    <string name="user_profile_navigation_update_address">Actualizar</string>
+    <string name="user_profile_navigation_extra_address_11">Av. Siempreviva 123</string>
+    <string name="user_profile_navigation_extra_address_12">Springfield</string>
+    <string name="user_profile_navigation_extra_address_21">Av. Inexistente 321</string>
+    <string name="user_profile_navigation_extra_address_22">Ciudad de México</string>
+
+
+
 </resources>

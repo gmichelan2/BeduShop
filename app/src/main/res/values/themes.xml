@@ -47,4 +47,7 @@
         <item name="colorOnPrimary">@color/bedu_orange</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.BeduCompras.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

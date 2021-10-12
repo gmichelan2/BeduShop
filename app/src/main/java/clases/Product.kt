@@ -1,4 +1,4 @@
-package com.example.bedushop
+package clases
 
 import android.os.Parcel
 import android.os.Parcelable

@@ -1,9 +1,9 @@
 package com.example.bedushop
 
+import activities.LoggedActivity
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
-import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,16 +11,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
+import okhttp3.*
+import org.json.JSONObject
+import java.io.IOException
+
 /**
  * Fragmento que contiene la interfaz de login y la lógica del mismo
  * **/
 class LoginFragment : Fragment() {
+
+    private val url="https://reqres.in/api/login"
+    private lateinit var email: TextInputLayout
+    private lateinit var password:TextInputLayout
+    private val cadenaMail=Regex("^[a-zA-Z0-9.!#\$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*\$")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,25 +60,15 @@ class LoginFragment : Fragment() {
 
 
         val botonSesion=view.findViewById<Button>(R.id.boton_sesion)
-        val email=view.findViewById<TextInputLayout>(R.id.email)
-        val password=view.findViewById<TextInputLayout>(R.id.password)
+        email=view.findViewById<TextInputLayout>(R.id.email)
+        password=view.findViewById<TextInputLayout>(R.id.password)
 
         //Toma los datos recibidos porlos inputs y de acuerdo a lo recibido avanza o devuelve error
             botonSesion.setOnClickListener {
+                Thread{//como no puedo ejecutar el callback sobre el hilo original, debo crear uno nuevo
+                    loguearUsuarioSincrono()
+                }.start()
 
-                if (email.editText?.text.toString()=="") {
-                    email.error = getString(R.string.email_error)
-                }
-                if (password.editText?.text.toString() == "") {
-                    password.error= getString(R.string.password_error)
-                }
-
-                if (email.editText?.text.toString() != "" && password.editText?.text.toString() != "") {
-                    Log.d(email.editText.toString(),"el log")
-                    Toast.makeText(context, "Login exitoso", Toast.LENGTH_SHORT).show()
-                    val intent=Intent(activity, LoggedActivity::class.java)
-                    startActivity(intent)
-                }
             }
 
             //Para escuchar los cambios realizados en los inputs y limpiar el mensaje de error
@@ -99,6 +98,52 @@ class LoginFragment : Fragment() {
                     password.error = null
                 }
             })
+        }
+
+        private fun loguearUsuarioSincrono(){
+
+            val okHttpClient= OkHttpClient()
+
+            val formBody= FormBody.Builder()
+                .add("email",email.editText?.text.toString())
+                .add("password", password.editText?.text.toString()).build()
+
+            val request= Request.Builder().url(url).post(formBody).build()
+
+            try{
+                val response=okHttpClient.newCall(request).execute()
+                val body= response.body?.string()
+                Log.d("cuerpo del json", body.toString())
+
+                val json= JSONObject(body)
+
+                activity?.runOnUiThread{//corro en el hilo principal las modificaciones pertinentes
+                    if (email.editText?.text.toString()=="") {
+                        email.error = getString(R.string.email_error)
+                    }
+
+                    if(!cadenaMail.containsMatchIn(email.editText?.text.toString())){
+                        email.error = getString(R.string.email_match_error)
+                    }
+                    if (password.editText?.text.toString() == "") {
+                        password.error= getString(R.string.password_error)
+                    }
+
+                    if (email.editText?.text.toString() != "" && password.editText?.text.toString() != "" && cadenaMail.containsMatchIn(email.editText?.text.toString())) {
+
+                        if(json.has("token")){
+                            Toast.makeText(context, "Login exitoso", Toast.LENGTH_SHORT).show()
+                            val intent=Intent(activity, LoggedActivity::class.java)
+                            startActivity(intent)
+                        }else{
+                            Snackbar.make(requireView(),"Usuario inexistente",Snackbar.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }catch (e:Error){
+                e.printStackTrace()
+            }
+
         }
 
         }

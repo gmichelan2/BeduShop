@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.navigation.fragment.navArgs
+import clases.Product
 import coil.api.load
 
-class ProductDetailFragment(private val product:Product) : Fragment() {
+class ProductDetailFragment() : Fragment() {
 
     private lateinit var productTitle: TextView
     private lateinit var productRating: RatingBar
@@ -36,6 +38,8 @@ class ProductDetailFragment(private val product:Product) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val safeArgs: ProductDetailFragmentArgs by navArgs()
+        val product=safeArgs.product
         loadProduct(product)
 
         productAddCart.setOnClickListener {
@@ -45,7 +49,7 @@ class ProductDetailFragment(private val product:Product) : Fragment() {
 
 
 
-    fun loadProduct(product:Product){
+    fun loadProduct(product: Product){
         productTitle.text=product.title
         productRating.rating=product.rate
         productImage.load(product.image)

@@ -18,4 +18,8 @@
     <color name="bedu_orange">#f03c15</color>
     <color name="bedu_orange200">#ff7244</color>
     <color name="bedu_orange700">#b50000</color>
+
+    <!--Colores del profile user list item-->
+    <color name="userprofile_list_text">#C5C7C9</color>
+
 </resources>

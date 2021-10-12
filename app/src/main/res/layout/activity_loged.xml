@@ -4,29 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoggedActivity">
+    android:id="@+id/activity_logged"
+    tools:context="activities.LoggedActivity">
 
-    <!--Cada activity tiene su propio grafico de navegacion-->
-<!--    <androidx.fragment.app.FragmentContainerView-->
-<!--        android:id="@+id/logged_nav_host_fragment"-->
-<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
-<!--        android:layout_width="20dp"-->
-<!--        android:layout_height="10dp"-->
-<!--        app:defaultNavHost="false"-->
+    <!--Cada activity tiene su propio grafico de navegacion es por ello que debo crear uno nuevo en este-->
+
+
+    <!--    <FrameLayout-->
+<!--        android:id="@+id/fragmentContainer"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:navGraph="@navigation/nav_logged_graph" />-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
 
-
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/logged_nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:navGraph="@navigation/nav_logged_graph"
+        android:layout_marginBottom="80dp"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -36,7 +41,8 @@
         app:menu="@menu/bottom_navigation"
         style="@style/BeduShop.BottomNav"
         app:itemTextColor="@drawable/bottom_nav_item_color"
-        app:itemIconTint="@drawable/bottom_nav_item_color"/>
+        app:itemIconTint="@drawable/bottom_nav_item_color"
+        android:layout_height="80dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

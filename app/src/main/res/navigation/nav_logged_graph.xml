@@ -3,20 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_logged_graph"
-    app:startDestination="@id/productListFragment2">
+    app:startDestination="@id/nav_home">
 
     <fragment
-        android:id="@+id/productListFragment2"
+        android:id="@+id/nav_home"
         android:name="com.example.bedushop.ProductListFragment"
         android:label="product_list_fragment"
         tools:layout="@layout/product_list_fragment" >
         <action
             android:id="@+id/action_productListFragment2_to_productDetailFragment2"
             app:destination="@id/productDetailFragment2" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_profile"
+            app:destination="@id/nav_profile" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_cart"
+            app:destination="@id/nav_cart" />
     </fragment>
     <fragment
         android:id="@+id/productDetailFragment2"
         android:name="com.example.bedushop.ProductDetailFragment"
         android:label="product_detail_fragment"
-        tools:layout="@layout/product_detail_fragment" />
+        tools:layout="@layout/product_detail_fragment" >
+        <argument
+            android:name="product"
+            app:argType="clases.Product" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.bedushop.UserProfileFragment"
+        android:label="UserProfileFragment" >
+        <action
+            android:id="@+id/action_nav_profile_to_nav_graph"
+            app:destination="@id/nav_graph" />
+        <action
+            android:id="@+id/action_nav_profile_to_nav_cart"
+            app:destination="@id/nav_cart" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_cart"
+        android:name="com.example.bedushop.ShoppingCartFragment"
+        android:label="shooping_cart_fragment"
+        tools:layout="@layout/shooping_cart_fragment" >
+        <action
+            android:id="@+id/action_nav_cart_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+    <include app:graph="@navigation/nav_graph" />
 </navigation>
