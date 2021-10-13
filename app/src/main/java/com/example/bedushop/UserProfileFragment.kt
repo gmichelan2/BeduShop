@@ -5,7 +5,6 @@ import adaptadores.UserProfileItemAdapter
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,14 +12,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import clases.Product
+import AuxFragments.AddressFragment
 import clases.User
 import clases.UserProfileItem
 import coil.api.load
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.*
@@ -64,8 +62,12 @@ class UserProfileFragment : Fragment() {
         val appContext= requireContext().applicationContext
 
 
+        //agrego este divider para que aparezcan líneas entre los items de la lista
+        recycler.apply {
+            addItemDecoration(DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL))
+        }
 
-        recycler.adapter=UserProfileItemAdapter(appContext, getItems(appContext))
+        recycler.adapter=UserProfileItemAdapter(appContext, getItems(appContext),customListener())
         recycler.layoutManager=LinearLayoutManager(appContext)
         recycler.setHasFixedSize(true)
 
@@ -76,6 +78,12 @@ class UserProfileFragment : Fragment() {
             startActivity(intentLogout)
         }
 
+    }
+
+    private fun customListener():(UserProfileItem)->Unit ={
+        val addressFragment= AddressFragment()
+        addressFragment.show(parentFragmentManager,"fragment")
+        Toast.makeText(activity, "${it.title}", Toast.LENGTH_SHORT).show()
     }
 
     private fun getJsonDataFromAsset(context: Context, fileName: String = "userprofileItems.json"): String? {

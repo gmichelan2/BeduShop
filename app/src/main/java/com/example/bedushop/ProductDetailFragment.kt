@@ -50,8 +50,10 @@ class ProductDetailFragment() : Fragment() {
 
 
     fun loadProduct(product: Product){
+
+
         productTitle.text=product.title
-        productRating.rating=product.rate
+       // productRating.rating=product.rate
         productImage.load(product.image)
         productPrice.text="$ ${product.price.toString()}"
         productShare.text="$ ${String.format("%.2f",product.price/6).toString()}"

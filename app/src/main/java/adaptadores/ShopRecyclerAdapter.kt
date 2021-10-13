@@ -1,6 +1,7 @@
 package adaptadores
 
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import clases.Product
 import com.example.bedushop.R
+import org.json.JSONObject
 
 
 /**
@@ -29,9 +31,12 @@ class ShopRecyclerAdapter(
         private val productImage=view.findViewById<ImageView>(R.id.product_image)
 
         fun bind(product: Product){
+           Log.d("rate product", product.rating.toString())
+            //val jsonRate= JSONObject(product.rate)
+
             productTitle.text=product.title
             productPrice.text="$ ${product.price.toString()}"
-            productRate.rating=product.rate as Float
+            //productRate.rating=product.rate
             productImage.load(product.image)
 
         }

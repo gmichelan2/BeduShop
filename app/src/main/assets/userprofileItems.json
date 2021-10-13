@@ -2,26 +2,26 @@
   {
     "id": 1,
     "title": "Mis direcciones",
-    "icon": "@drawable/ic_location"
+    "icon": "ic_location"
   },
   {
     "id": 2,
     "title": "Método de pago",
-    "icon": "@drawable/ic_creditcard"
+    "icon": "ic_creditcard"
   },
   {
     "id": 3,
     "title": "Pedidos",
-    "icon": "@drawable/ic_pedidos"
+    "icon": "ic_pedidos"
   },
   {
     "id": 4,
     "title": "Notificaciones",
-    "icon": "@drawable/ic_notification"
+    "icon": "ic_notification"
   },
   {
     "id": 5,
     "title": "Cambiar contraseña",
-    "icon": "@drawable/password"
+    "icon": "password"
   }
 ]

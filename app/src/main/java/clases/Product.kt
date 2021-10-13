@@ -2,6 +2,7 @@ package clases
 
 import android.os.Parcel
 import android.os.Parcelable
+import org.json.JSONObject
 
 
 //data class de producto
@@ -10,7 +11,7 @@ import android.os.Parcelable
                val price:Double,
                val description:String,
                val category:String,
-               val rate:Float,
+               val rating: Array,
                val image:String
                ): Parcelable {
     constructor(parcel: Parcel) : this(
@@ -19,7 +20,7 @@ import android.os.Parcelable
         parcel.readDouble(),
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readFloat(),
+        parcel.readStringArray()!!,
         parcel.readString()!!
     ) {
 
@@ -31,7 +32,7 @@ import android.os.Parcelable
         parcel.writeDouble(price)
         parcel.writeString(description)
         parcel.writeString(category)
-        parcel.writeFloat(rate)
+        parcel.writeString(rating.toString())
         parcel.writeString(image)
     }
 
