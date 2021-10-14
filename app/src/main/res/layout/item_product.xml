@@ -28,6 +28,17 @@
         app:layout_constraintStart_toEndOf="@+id/product_image" />
 
     <TextView
+        android:id="@+id/product_rating_bar_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="14dp"
+        android:text="123"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintStart_toEndOf="@+id/product_rating_bar" />
+
+    <TextView
         android:id="@+id/product_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

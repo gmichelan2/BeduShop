@@ -17,7 +17,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import clases.Product
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import deserializers.ProductJsonDeserializer
 import okhttp3.*
 import java.io.IOException
 
@@ -62,7 +64,8 @@ class ProductListFragment(private var listener: (Product)->Unit={}) : Fragment()
             override fun onResponse(call: Call, response: Response) {
                 val body= response.body?.string()
                 val listProductType = object : TypeToken<List<Product>>() {}.type
-                val productList = Gson().fromJson<List<Product>>(body,listProductType)
+                val gson= GsonBuilder().registerTypeAdapter(Product::class.java, ProductJsonDeserializer()).create()
+                val productList = gson.fromJson<List<Product>>(body,listProductType)
                 activity?.runOnUiThread {
                     progressBar.visibility=View.GONE
                     recycler.adapter= ShopRecyclerAdapter(productList,listener)

@@ -113,7 +113,7 @@ class LoginFragment : Fragment() {
             try{
                 val response=okHttpClient.newCall(request).execute()
                 val body= response.body?.string()
-                Log.d("cuerpo del json", body.toString())
+
 
                 val json= JSONObject(body)
 

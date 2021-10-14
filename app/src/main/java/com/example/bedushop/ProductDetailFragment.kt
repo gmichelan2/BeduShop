@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.navigation.fragment.navArgs
 import clases.Product
 import coil.api.load
+import org.w3c.dom.Text
 
 class ProductDetailFragment() : Fragment() {
 
@@ -19,6 +20,7 @@ class ProductDetailFragment() : Fragment() {
     private lateinit var productShare: TextView
     private lateinit var productAddCart: Button
     private lateinit var productDescription: TextView
+    private lateinit var productDetailRateTag:TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +35,7 @@ class ProductDetailFragment() : Fragment() {
         productShare = view.findViewById(R.id.product_detail_share)
         productAddCart = view.findViewById(R.id.product_detail_add_cart_button)
         productDescription = view.findViewById(R.id.product_detail_description)
+        productDetailRateTag=view.findViewById(R.id.product_detail_rate_value)
         return view
     }
 
@@ -53,11 +56,12 @@ class ProductDetailFragment() : Fragment() {
 
 
         productTitle.text=product.title
-       // productRating.rating=product.rate
+        productRating.rating=product.rating
         productImage.load(product.image)
-        productPrice.text="$ ${product.price.toString()}"
-        productShare.text="$ ${String.format("%.2f",product.price/6).toString()}"
+        productPrice.text="$ ${product.price}"
+        productShare.text="$ ${String.format("%.2f",product.price/6)}"
         productDescription.text=product.description
+        productDetailRateTag.text=product.rating.toString()
     }
 
 }

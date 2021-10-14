@@ -6,13 +6,13 @@ import org.json.JSONObject
 
 
 //data class de producto
- class Product(val id:Int,
-               val title:String,
-               val price:Double,
-               val description:String,
-               val category:String,
-               val rating: Array,
-               val image:String
+ class Product(val id:Int=0,
+               val title:String?,
+               val price:Double=0.0,
+               val description:String?,
+               val category:String?,
+               val rating: Float,
+               val image:String?
                ): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -20,7 +20,7 @@ import org.json.JSONObject
         parcel.readDouble(),
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readStringArray()!!,
+        parcel.readFloat()!!,
         parcel.readString()!!
     ) {
 
@@ -32,7 +32,7 @@ import org.json.JSONObject
         parcel.writeDouble(price)
         parcel.writeString(description)
         parcel.writeString(category)
-        parcel.writeString(rating.toString())
+        parcel.writeFloat(rating)
         parcel.writeString(image)
     }
 
@@ -43,7 +43,6 @@ import org.json.JSONObject
     companion object CREATOR : Parcelable.Creator<Product> {
         override fun createFromParcel(parcel: Parcel): Product {
             return Product(parcel)
-
         }
 
         override fun newArray(size: Int): Array<Product?> {

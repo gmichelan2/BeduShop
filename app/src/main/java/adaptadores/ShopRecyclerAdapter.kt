@@ -29,15 +29,14 @@ class ShopRecyclerAdapter(
         private val productPrice=view.findViewById<TextView>(R.id.product_price)
         private val productRate=view.findViewById<RatingBar>(R.id.product_rating_bar)
         private val productImage=view.findViewById<ImageView>(R.id.product_image)
+        private val productRatingBarLabel=view.findViewById<TextView>(R.id.product_rating_bar_label)
 
         fun bind(product: Product){
-           Log.d("rate product", product.rating.toString())
-            //val jsonRate= JSONObject(product.rate)
-
             productTitle.text=product.title
-            productPrice.text="$ ${product.price.toString()}"
-            //productRate.rating=product.rate
+            productPrice.text="$ ${product.price}"
+            productRate.rating=product.rating
             productImage.load(product.image)
+            productRatingBarLabel.text=product.rating.toString()
 
         }
     }
