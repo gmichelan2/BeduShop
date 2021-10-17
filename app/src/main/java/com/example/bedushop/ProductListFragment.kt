@@ -1,29 +1,24 @@
 package com.example.bedushop
 
-import activities.LoggedActivity
+
 import adaptadores.ShopRecyclerAdapter
-import android.content.Context
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import clases.Product
-import com.google.gson.Gson
+import realm.Product
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import deserializers.ProductJsonDeserializer
+import io.realm.Realm
 import okhttp3.*
 import java.io.IOException
 
-class ProductListFragment(private var listener: (Product)->Unit={}) : Fragment() {
+class ProductListFragment(private var listener: (realm.Product)->Unit={}) : Fragment() {
 
     private val url="https://fakestoreapi.com/products"
     private lateinit var recycler:RecyclerView
@@ -47,11 +42,25 @@ class ProductListFragment(private var listener: (Product)->Unit={}) : Fragment()
             findNavController().navigate(action,null)
         }
 
-        getProducts2()
+        //cambio la consigna y en lugar de traer todo dede una API rest debo traer todo desde una base de datos.
+        //getProducts2()
+        loadProducts()
+
+
     }
 
 
-    private fun getProducts2(){
+
+    //cargo los productos al adaptador desde una base de datos usando realm
+    private fun loadProducts(){
+        val realm= Realm.getDefaultInstance()
+        val productos= realm.where(realm.Product::class.java).findAll()
+        progressBar.visibility=View.GONE
+        recycler.adapter= ShopRecyclerAdapter(productos,listener)
+    }
+
+//funcion utilizada para traer los productos desde un servicio web, como cambio la consigna ahora no se usa
+    private fun getProducts(){
         val okHttpClient= OkHttpClient()
 
         val request= Request.Builder().url(url).build()

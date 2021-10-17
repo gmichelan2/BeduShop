@@ -1,7 +1,7 @@
 package adaptadores
 
 
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,17 +10,16 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
-import clases.Product
 import com.example.bedushop.R
-import org.json.JSONObject
+
 
 
 /**
  * Adaptador para el recycler view
  * **/
 class ShopRecyclerAdapter(
-                          private val products:List<Product>,
-                          private val listener: (Product)->Unit):
+                          private val products:List<realm.Product>,
+                          private val listener: (realm.Product)->Unit):
     RecyclerView.Adapter<ShopRecyclerAdapter.ViewHolder>()  {
 
 
@@ -31,10 +30,10 @@ class ShopRecyclerAdapter(
         private val productImage=view.findViewById<ImageView>(R.id.product_image)
         private val productRatingBarLabel=view.findViewById<TextView>(R.id.product_rating_bar_label)
 
-        fun bind(product: Product){
+        fun bind(product: realm.Product){
             productTitle.text=product.title
             productPrice.text="$ ${product.price}"
-            productRate.rating=product.rating
+            productRate.rating=product.rating!!
             productImage.load(product.image)
             productRatingBarLabel.text=product.rating.toString()
 

@@ -12,6 +12,7 @@
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/activity_main_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/activity_registro.xml" value="0.536" />
+        <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/datos_pago_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/fragment_address.xml" value="0.33" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/item_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/login_fragment.xml" value="0.25416666666666665" />
@@ -19,8 +20,9 @@
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/product_list_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/products_list_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/register_fragment.xml" value="0.33" />
-        <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/shooping_cart_fragment.xml" value="0.16145833333333334" />
+        <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/shooping_cart_fragment.xml" value="0.33" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/shopping_cart_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/successfull_purchase_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/user_profile_fragment.xml" value="0.4" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/userprofile_list_item.xml" value="0.67" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/menu/bottom_navigation.xml" value="0.2682291666666667" />

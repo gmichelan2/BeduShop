@@ -27,19 +27,13 @@ Activity que maneja la aplicación y los intercambios de fragmentos, una vez que
 **/
 class LoggedActivity : AppCompatActivity() {
 
+    //guardo un shared preference con el id del producto y la cantidad
+    companion object{
+        val PREFS_NAME="org.example.sharedpreferences"
+        val PRODUCTS= "MUTABLEMAP"
 
-    /*private val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_logged_graph) as NavHostFragment
-    val navController = navHostFragment.navController*/
+    }
 
-//    private val productListFragment= ProductListFragment(){
-//       // Toast.makeText(this,it.category.toString(),Toast.LENGTH_SHORT).show()
-//        var detailFragment= ProductDetailFragment(it)
-//        var transaction= supportFragmentManager.beginTransaction()
-//        transaction.replace(R.id.fragmentContainer,detailFragment).addToBackStack(null).commit()
-//
-//    }
-//    private val shoppingCartFragment= ShoppingCartFragment()
-//    private val userProfileFragment = UserProfileFragment()
     private lateinit var bottomNav: BottomNavigationView
 
 

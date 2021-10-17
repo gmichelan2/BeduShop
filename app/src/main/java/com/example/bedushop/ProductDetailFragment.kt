@@ -1,5 +1,8 @@
 package com.example.bedushop
 
+import activities.LoggedActivity
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,9 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.navigation.fragment.navArgs
-import clases.Product
+import realm.Product
 import coil.api.load
-import org.w3c.dom.Text
+
 
 class ProductDetailFragment() : Fragment() {
 
@@ -21,6 +24,7 @@ class ProductDetailFragment() : Fragment() {
     private lateinit var productAddCart: Button
     private lateinit var productDescription: TextView
     private lateinit var productDetailRateTag:TextView
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +40,7 @@ class ProductDetailFragment() : Fragment() {
         productAddCart = view.findViewById(R.id.product_detail_add_cart_button)
         productDescription = view.findViewById(R.id.product_detail_description)
         productDetailRateTag=view.findViewById(R.id.product_detail_rate_value)
+        sharedPreferences=requireContext().getSharedPreferences(LoggedActivity.PREFS_NAME, Context.MODE_PRIVATE)
         return view
     }
 
@@ -56,10 +61,10 @@ class ProductDetailFragment() : Fragment() {
 
 
         productTitle.text=product.title
-        productRating.rating=product.rating
+        productRating.rating=product.rating!!
         productImage.load(product.image)
         productPrice.text="$ ${product.price}"
-        productShare.text="$ ${String.format("%.2f",product.price/6)}"
+        productShare.text="$ ${String.format("%.2f",product.price!!/6)}"
         productDescription.text=product.description
         productDetailRateTag.text=product.rating.toString()
     }

@@ -55,6 +55,30 @@
     <string name="user_profile_navigation_extra_address_21">Av. Inexistente 321</string>
     <string name="user_profile_navigation_extra_address_22">Ciudad de México</string>
 
+    <!--    Shopping cart fragment-->
+    <string name="shopping_cart_button">Proceder al pago</string>
+
+    <!--   Datos de pago fragment -->
+
+    <string name="paid_title">Datos de pago</string>
+    <string name="paid_direction">Dirección actual</string>
+    <string name="paid_method">Método de pago</string>
+    <string name="paid_resume">Resumen</string>
+    <string name="paid_subtotal">Subtotal</string>
+    <string name="paid_subtotal_cuantity">$ 30000</string>
+    <string name="paid_shipment">Envío</string>
+    <string name="paid_shipment_cuantity">$ 30.00</string>
+    <string name="paid_total">Total</string>
+    <string name="paid_total_cuantity">$ 368.89</string>
+    <string name="paid_pay_button">Pagar</string>
+
+    <!--  Succesfull purchase fragment -->
+    <string name="successfull_thanks">¡Gracias por su compra!</string>
+    <string name="successfull_soon">Recibiras tu paquete pronto</string>
+    <string name="successfull_button">Ir al menu principal</string>
+
+
+
 
 
 </resources>

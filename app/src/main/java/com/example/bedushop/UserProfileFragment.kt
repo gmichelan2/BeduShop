@@ -83,7 +83,6 @@ class UserProfileFragment : Fragment() {
     private fun customListener():(UserProfileItem)->Unit ={
         val addressFragment= AddressFragment()
         addressFragment.show(parentFragmentManager,"fragment")
-        Toast.makeText(activity, "${it.title}", Toast.LENGTH_SHORT).show()
     }
 
     private fun getJsonDataFromAsset(context: Context, fileName: String = "userprofileItems.json"): String? {
@@ -132,7 +131,6 @@ class UserProfileFragment : Fragment() {
                 val body= response.body?.string()
 
                 try{
-                    val persona= Gson().fromJson(body, User::class.java)//como quería usar Gson lo instacie al usuario en un objeto
                     val json= JSONObject(body).getJSONObject("data")
 
                     //Log.d("cuerpo del body", json.get("data").toString())

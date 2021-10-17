@@ -22,7 +22,7 @@
        <item name="colorOnSecondary">@color/black</item>
     </style>
 
-    <!-- Thema de los textInputslayout -->
+    <!-- textInputslayout  theme-->
     <style name="BeduShop.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/BeduShop.HintText</item>
         <item name="hintTextColor">@color/white</item>
@@ -33,12 +33,12 @@
         <item name="android:layout_width">300dp</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    <!-- Thema del HintText -->
+    <!--  HintText theme -->
     <style name="BeduShop.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="android:textColor">?android:attr/colorAccent</item>
     </style>
 
-    <!-- Thema del bottonNav -->
+    <!-- BottonNav Theme -->
     <style name="BeduShop.BottomNav" parent="">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">80dp</item>
@@ -50,4 +50,10 @@
     <style name="ShapeAppearanceOverlay.BeduCompras.CornerSize50Percent" parent="">
         <item name="cornerSize">50%</item>
     </style>
+
+    <!--    -->
+    <style name="BeduSHop.PaidList" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

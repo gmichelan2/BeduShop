@@ -60,6 +60,7 @@
                 android:textColor="@color/bedu_black" />
 
             <TextView
+                android:id="@+id/user_profile_address_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="25dp"
@@ -67,6 +68,7 @@
                 android:textColor="@color/bedu_black" />
 
             <TextView
+                android:id="@+id/user_profile_address_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_mylocation"

@@ -27,7 +27,7 @@
         tools:layout="@layout/product_detail_fragment" >
         <argument
             android:name="product"
-            app:argType="clases.Product" />
+            app:argType="realm.Product" />
     </fragment>
     <fragment
         android:id="@+id/nav_profile"
@@ -44,10 +44,33 @@
         android:id="@+id/nav_cart"
         android:name="com.example.bedushop.ShoppingCartFragment"
         android:label="shooping_cart_fragment"
-        tools:layout="@layout/shooping_cart_fragment" >
+        tools:layout="@layout/shopping_cart_fragment" >
         <action
             android:id="@+id/action_nav_cart_to_nav_profile"
             app:destination="@id/nav_profile" />
+        <action
+            android:id="@+id/action_nav_cart_to_pay_fragment"
+            app:destination="@id/pay_fragment" />
     </fragment>
+    <fragment
+        android:id="@+id/pay_fragment"
+        android:name="com.example.bedushop.PayFragment"
+        android:label="shooping_cart_fragment"
+        tools:layout="@layout/pay_fragment" >
+        <action
+            android:id="@+id/action_pay_fragment_to_successfullPurchase"
+            app:destination="@id/successfullPurchase" />
+    </fragment>
+
+
     <include app:graph="@navigation/nav_graph" />
+    <fragment
+        android:id="@+id/successfullPurchase"
+        android:name="com.example.bedushop.SuccessfullPurchase"
+        android:label="successfull_purchase_fragment"
+        tools:layout="@layout/successfull_purchase_fragment" >
+        <action
+            android:id="@+id/action_successfullPurchase_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>
