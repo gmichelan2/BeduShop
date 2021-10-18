@@ -77,7 +77,14 @@
     <string name="successfull_soon">Recibiras tu paquete pronto</string>
     <string name="successfull_button">Ir al menu principal</string>
 
+    <!--  cart items -->
+    <string name="cart_item_title">Titulo</string>
+    <string name="cart_item_price">price</string>
+    <string name="cart_item_cant">cant</string>
 
+    <!--  Empty cart fragment  -->
+    <string name="empty_cart_message">Su carrito está vacio</string>
+    <string name="empty_cart_button">Llénelo ahora mismo</string>
 
 
 

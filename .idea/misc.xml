@@ -12,10 +12,13 @@
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/activity_main_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/activity_registro.xml" value="0.536" />
+        <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/cart_item.xml" value="0.67" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/datos_pago_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/empty_cart_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/fragment_address.xml" value="0.33" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/item_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/login_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/pay_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/product_detail_fragment.xml" value="0.5" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/product_list_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Bedunaranjax/BeduShop/app/src/main/res/layout/products_list_fragment.xml" value="0.25416666666666665" />
@@ -39,7 +42,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.25416666666666665" />
+        <option name="scale" value="0.4" />
       </ProjectState>
     </option>
   </component>

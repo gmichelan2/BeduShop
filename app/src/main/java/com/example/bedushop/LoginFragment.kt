@@ -17,8 +17,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
+import io.realm.Realm
+import io.realm.kotlin.where
 import okhttp3.*
 import org.json.JSONObject
+import realm.Product
+import realm.User
 import java.io.IOException
 
 /**
@@ -67,6 +71,9 @@ class LoginFragment : Fragment() {
             botonSesion.setOnClickListener {
                 Thread{//como no puedo ejecutar el callback sobre el hilo original, debo crear uno nuevo
                     loguearUsuarioSincrono()
+
+
+
                 }.start()
 
             }
@@ -132,6 +139,12 @@ class LoginFragment : Fragment() {
                     if (email.editText?.text.toString() != "" && password.editText?.text.toString() != "" && cadenaMail.containsMatchIn(email.editText?.text.toString())) {
 
                         if(json.has("token")){
+                            //si recibe el token lo busco al usuario en la abse de datos de acuerdo a su email lo que me devuelve una coleccion
+//                            val realm= Realm.getDefaultInstance()
+//                            //val users=realm.where(User::class.java).equalTo("email",email.editText?.text.toString()).findFirst()
+//                            val users=realm.where(User::class.java).findAll()
+//                            //guardo el id del usuario en shared prefs generadas en el main activity
+//                            Log.d("users",users.toString())
                             Toast.makeText(context, "Login exitoso", Toast.LENGTH_SHORT).show()
                             val intent=Intent(activity, LoggedActivity::class.java)
                             startActivity(intent)
@@ -147,4 +160,5 @@ class LoginFragment : Fragment() {
         }
 
         }
+
 

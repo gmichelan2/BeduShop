@@ -9,9 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import realm.Product
 import coil.api.load
+import io.realm.Realm
+import io.realm.kotlin.createObject
+import realm.Cart
 
 
 class ProductDetailFragment() : Fragment() {
@@ -24,7 +28,6 @@ class ProductDetailFragment() : Fragment() {
     private lateinit var productAddCart: Button
     private lateinit var productDescription: TextView
     private lateinit var productDetailRateTag:TextView
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +43,6 @@ class ProductDetailFragment() : Fragment() {
         productAddCart = view.findViewById(R.id.product_detail_add_cart_button)
         productDescription = view.findViewById(R.id.product_detail_description)
         productDetailRateTag=view.findViewById(R.id.product_detail_rate_value)
-        sharedPreferences=requireContext().getSharedPreferences(LoggedActivity.PREFS_NAME, Context.MODE_PRIVATE)
         return view
     }
 
@@ -51,6 +53,25 @@ class ProductDetailFragment() : Fragment() {
         loadProduct(product)
 
         productAddCart.setOnClickListener {
+            //conectarse a la db
+            val realm= Realm.getDefaultInstance()
+            val cart= realm.where(Cart::class.java).equalTo("id_product", product.id).findFirst()
+            //verificar si el producto esta en la db
+            //si esta sumarle uno, si no esta agregarlo a la db
+            if(cart==null){//agregarlo a la db
+                //fragment carrito vacio
+                    realm.executeTransaction { transactionRealm->
+                        val cart= transactionRealm.createObject(Cart::class.java, product.id)
+                        cart.cant=1
+                    }
+            }else{
+                realm.executeTransaction { transactionRealm->
+                    cart.cant=cart.cant!!+1
+                    transactionRealm.copyToRealmOrUpdate(cart)
+                }
+            }
+            //navegar al carrito
+            findNavController().navigate(R.id.action_productDetailFragment2_to_nav_cart)
             Toast.makeText(activity, "El producto ${product.title} ha sido agreado al carrito",Toast.LENGTH_SHORT).show()
         }
     }
@@ -58,7 +79,6 @@ class ProductDetailFragment() : Fragment() {
 
 
     fun loadProduct(product: Product){
-
 
         productTitle.text=product.title
         productRating.rating=product.rating!!

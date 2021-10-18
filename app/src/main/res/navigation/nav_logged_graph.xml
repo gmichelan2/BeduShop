@@ -28,6 +28,9 @@
         <argument
             android:name="product"
             app:argType="realm.Product" />
+        <action
+            android:id="@+id/action_productDetailFragment2_to_nav_cart"
+            app:destination="@id/nav_cart" />
     </fragment>
     <fragment
         android:id="@+id/nav_profile"
@@ -51,6 +54,9 @@
         <action
             android:id="@+id/action_nav_cart_to_pay_fragment"
             app:destination="@id/pay_fragment" />
+        <action
+            android:id="@+id/action_nav_cart_to_emptyCartFragment"
+            app:destination="@id/emptyCartFragment" />
     </fragment>
     <fragment
         android:id="@+id/pay_fragment"
@@ -60,6 +66,9 @@
         <action
             android:id="@+id/action_pay_fragment_to_successfullPurchase"
             app:destination="@id/successfullPurchase" />
+        <argument
+            android:name="total"
+            app:argType="string" />
     </fragment>
 
 
@@ -71,6 +80,15 @@
         tools:layout="@layout/successfull_purchase_fragment" >
         <action
             android:id="@+id/action_successfullPurchase_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/emptyCartFragment"
+        android:name="com.example.bedushop.EmptyCartFragment"
+        android:label="empty_cart_fragment"
+        tools:layout="@layout/empty_cart_fragment" >
+        <action
+            android:id="@+id/action_emptyCartFragment_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
 </navigation>

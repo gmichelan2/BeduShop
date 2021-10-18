@@ -27,12 +27,6 @@ Activity que maneja la aplicación y los intercambios de fragmentos, una vez que
 **/
 class LoggedActivity : AppCompatActivity() {
 
-    //guardo un shared preference con el id del producto y la cantidad
-    companion object{
-        val PREFS_NAME="org.example.sharedpreferences"
-        val PRODUCTS= "MUTABLEMAP"
-
-    }
 
     private lateinit var bottomNav: BottomNavigationView
 

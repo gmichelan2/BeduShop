@@ -20,7 +20,7 @@ import java.io.IOException
 
 class ProductListFragment(private var listener: (realm.Product)->Unit={}) : Fragment() {
 
-    private val url="https://fakestoreapi.com/products"
+    private val url="https://fakestoreapi.com/products" //cuando traia los productos desde una api
     private lateinit var recycler:RecyclerView
     private lateinit var progressBar: ProgressBar
 
