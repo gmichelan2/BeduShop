@@ -34,12 +34,14 @@ class ShoppingCartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recycler= view.findViewById(R.id.shopping_cart_recyclerView)
         recycler.layoutManager= LinearLayoutManager(requireContext())
+        btnPurchase=view.findViewById(R.id.shopping_cart_button)
 
         val realm= Realm.getDefaultInstance()
         val cartList=realm.where(Cart::class.java).findAll()
 
         if(cartList.isEmpty()){
-            findNavController().navigate(R.id.action_nav_cart_to_emptyCartFragment,null,null)
+            btnPurchase.visibility=View.GONE
+            //findNavController().navigate(R.id.action_nav_cart_to_emptyCartFragment,null,null)
         }else{
             recycler.adapter=ShoppingCartRecyclerAdapter(cartList)
         }
@@ -48,17 +50,13 @@ class ShoppingCartFragment : Fragment() {
             var total=calcularTotal(cartList, realm).toString()
             val action=ShoppingCartFragmentDirections.actionNavCartToPayFragment(total)
             findNavController().navigate(action,null)
-
-
         }
-
-
     }
 
     private fun calcularTotal(cartList: List<Cart>, realm:Realm):Double{
         var total=0.0
 
-        for(i in 0..cartList.size){
+        for(i in 0..cartList.size-1){
             var cart= cartList.get(i)
             var product= realm.where(Product::class.java).equalTo("id", cart.id_product).findFirst()
             var parcial= cart.cant?.times(product?.price!!)

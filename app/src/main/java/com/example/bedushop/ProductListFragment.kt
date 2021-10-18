@@ -46,10 +46,7 @@ class ProductListFragment(private var listener: (realm.Product)->Unit={}) : Frag
         //getProducts2()
         loadProducts()
 
-
     }
-
-
 
     //cargo los productos al adaptador desde una base de datos usando realm
     private fun loadProducts(){
