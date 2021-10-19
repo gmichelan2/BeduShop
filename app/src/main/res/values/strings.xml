@@ -86,6 +86,12 @@
     <string name="empty_cart_message">Su carrito está vacio</string>
     <string name="empty_cart_button">Llénelo ahora mismo</string>
 
+    <!-- textos para la notificacion push -->
+    <string name="notify_title">Compra realizada</string>
+    <string name="notify_body">Tu pedido llegará en una semana</string>
 
+    <!-- CANAL  -->
+    <string name="channel_shopping">Compras</string>
+    <string name="shopping_description">2 notifications per week</string>
 
 </resources>

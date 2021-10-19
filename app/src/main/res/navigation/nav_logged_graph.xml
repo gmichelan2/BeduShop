@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_nav_cart_to_emptyCartFragment"
             app:destination="@id/emptyCartFragment" />
+        <action
+            android:id="@+id/action_nav_cart_to_nav_home"
+            app:destination="@id/nav_home" />
     </fragment>
     <fragment
         android:id="@+id/pay_fragment"

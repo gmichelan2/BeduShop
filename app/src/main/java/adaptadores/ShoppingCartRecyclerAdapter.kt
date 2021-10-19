@@ -1,13 +1,18 @@
 package adaptadores
 
+import android.app.Activity
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import realm.Product
 import coil.api.load
+import com.example.bedushop.EmptyCartFragment
 import com.example.bedushop.R
 import io.realm.Realm
 import io.realm.kotlin.delete
@@ -15,18 +20,21 @@ import realm.Cart
 
 
 /*Adaptador para la lista de items del carrito*/
-class ShoppingCartRecyclerAdapter(
-                        private val cartList:List<Cart>):RecyclerView.Adapter<ShoppingCartRecyclerAdapter.ViewHolder>()
+class ShoppingCartRecyclerAdapter(private var btnPay: Button,
+                                  private val empty_cart: ConstraintLayout,
+                                  private val cartList:List<Cart>):RecyclerView.Adapter<ShoppingCartRecyclerAdapter.ViewHolder>()
 
  {
 
-     class ViewHolder(view: View, adapter:ShoppingCartRecyclerAdapter): RecyclerView.ViewHolder(view){
+     class ViewHolder(view: View, adapter:ShoppingCartRecyclerAdapter,empty_cart:ConstraintLayout, btnPay:Button): RecyclerView.ViewHolder(view){
          private val cartItemTitle=view.findViewById<TextView>(R.id.cart_item_title)
          private val cartItemPrice=view.findViewById<TextView>(R.id.cart_item_price)
          private val cartItemCant=view.findViewById<TextView>(R.id.cart_item_cant)
          private val cartBtnSubs=view.findViewById<ImageView>(R.id.cart_item_sub)
          private val cartBtnAdd=view.findViewById<ImageView>(R.id.cart_item_add)
          private val cartItemImage=view.findViewById<ImageView>(R.id.cart_item_image)
+         private val empty_cart=empty_cart
+         private val btnPay=btnPay
          private val adapter=adapter
 
 
@@ -69,6 +77,11 @@ class ShoppingCartRecyclerAdapter(
                          adapter.notifyDataSetChanged()
                      }
                  }
+                 val cant=realm.where(Cart::class.java).findAll()
+                 if(cant.isEmpty()){
+                    empty_cart.visibility=View.VISIBLE
+                     btnPay.visibility=View.GONE
+                 }
              }
          }
      }
@@ -77,7 +90,7 @@ class ShoppingCartRecyclerAdapter(
 
      override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
          val view=LayoutInflater.from(parent.context).inflate(R.layout.cart_item, parent, false)
-         return ViewHolder(view, this)
+         return ViewHolder(view, this,empty_cart,btnPay)
      }
 
      override fun onBindViewHolder(holder: ViewHolder, position: Int){
