@@ -52,9 +52,11 @@ class PayFragment: Fragment() {
             realm.executeTransaction { transaction->
                 realm.delete(Cart::class.java)
             }
+
+            //creo el pending intent para que la notificación me redireccione
             val pendingIntent=NavDeepLinkBuilder(requireContext())
                 .setComponentName(LoggedActivity::class.java)
-                .setGraph(R.id.nav_logged_graph)
+                .setGraph(R.navigation.nav_logged_graph)
                 .setDestination(R.id.successfullPurchase)
                 .createPendingIntent()
 

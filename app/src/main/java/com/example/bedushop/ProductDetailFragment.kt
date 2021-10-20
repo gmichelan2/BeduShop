@@ -4,11 +4,13 @@ import activities.LoggedActivity
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.ViewCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import realm.Product
@@ -29,6 +31,11 @@ class ProductDetailFragment() : Fragment() {
     private lateinit var productDescription: TextView
     private lateinit var productDetailRateTag:TextView
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition=TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,9 +55,17 @@ class ProductDetailFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //obtengo lso safeArg enviados por la lista de productos
         val safeArgs: ProductDetailFragmentArgs by navArgs()
         val product=safeArgs.product
+
+
+        //cargo el producto en la vista
         loadProduct(product)
+
+        //seteo la animacion compartida en la vista de la imagen
+        ViewCompat.setTransitionName(productImage, "")
 
         productAddCart.setOnClickListener {
             //conectarse a la db

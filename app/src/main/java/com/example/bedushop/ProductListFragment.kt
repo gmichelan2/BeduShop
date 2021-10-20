@@ -7,7 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.appcompat.view.menu.MenuView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import realm.Product
@@ -18,28 +23,35 @@ import io.realm.Realm
 import okhttp3.*
 import java.io.IOException
 
-class ProductListFragment(private var listener: (realm.Product)->Unit={}) : Fragment() {
+class ProductListFragment() : Fragment() {
 
     private val url="https://fakestoreapi.com/products" //cuando traia los productos desde una api
     private lateinit var recycler:RecyclerView
     private lateinit var progressBar: ProgressBar
+    private lateinit var listener: (Product, ImageView)->Unit
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.product_list_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         progressBar=view.findViewById(R.id.productlist_progressBar)
         recycler = view.findViewById(R.id.productsRecyclerView)
 
-        listener={
-            val action= ProductListFragmentDirections.actionProductListFragment2ToProductDetailFragment2(it)
-            findNavController().navigate(action,null)
+
+        listener={ product: Product, imageView: ImageView ->
+            val action= ProductListFragmentDirections.actionProductListFragment2ToProductDetailFragment2(product)
+            val bundle= Bundle()
+            val extras= FragmentNavigatorExtras(
+                imageView to "product_transition"
+            )
+
+            findNavController().navigate(action, extras)
         }
 
         //cambio la consigna y en lugar de traer todo dede una API rest debo traer todo desde una base de datos.

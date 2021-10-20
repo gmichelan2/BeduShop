@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.example.bedushop.R
@@ -19,7 +20,7 @@ import com.example.bedushop.R
  * **/
 class ShopRecyclerAdapter(
                           private val products:List<realm.Product>,
-                          private val listener: (realm.Product)->Unit):
+                          private val listener: (realm.Product, ImageView)->Unit):
     RecyclerView.Adapter<ShopRecyclerAdapter.ViewHolder>()  {
 
 
@@ -29,6 +30,11 @@ class ShopRecyclerAdapter(
         private val productRate=view.findViewById<RatingBar>(R.id.product_rating_bar)
         private val productImage=view.findViewById<ImageView>(R.id.product_image)
         private val productRatingBarLabel=view.findViewById<TextView>(R.id.product_rating_bar_label)
+
+        fun getProductImage():ImageView{
+            return productImage
+        }
+
 
         fun bind(product: realm.Product){
             productTitle.text=product.title
@@ -48,7 +54,7 @@ class ShopRecyclerAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int){
         val product=products[position]
         holder.bind(product)
-        holder.itemView.setOnClickListener{listener(product)}
+        holder.itemView.setOnClickListener{listener(product,holder.getProductImage())}
     }
 
     override fun getItemCount():Int{
