@@ -31,15 +31,13 @@ class ProductDetailFragment() : Fragment() {
     private lateinit var productDescription: TextView
     private lateinit var productDetailRateTag:TextView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        sharedElementEnterTransition=TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        sharedElementEnterTransition=TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.product_detail_fragment, container, false)
         productTitle = view.findViewById(R.id.product_detail_title)
@@ -55,6 +53,8 @@ class ProductDetailFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         //obtengo lso safeArg enviados por la lista de productos
         val safeArgs: ProductDetailFragmentArgs by navArgs()

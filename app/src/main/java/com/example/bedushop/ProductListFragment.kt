@@ -46,7 +46,8 @@ class ProductListFragment() : Fragment() {
 
         listener={ product: Product, imageView: ImageView ->
             val action= ProductListFragmentDirections.actionProductListFragment2ToProductDetailFragment2(product)
-            val bundle= Bundle()
+
+
             val extras= FragmentNavigatorExtras(
                 imageView to "product_transition"
             )
