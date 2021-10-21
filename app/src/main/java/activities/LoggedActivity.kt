@@ -81,6 +81,7 @@ class LoggedActivity : AppCompatActivity() {
                                 setTarget(bottomNav)
                                 start() }
                             bottomShow=false
+                            //tuve que agregar esta línea para manejar los márgenes, ya que el bottomBavigationView me hacia overlap  con el contenido de la lista
                             hostFragment.setPadding(0,0,0,0)
 
                         }
@@ -96,6 +97,7 @@ class LoggedActivity : AppCompatActivity() {
                 setTarget(bottomNav)
                 start() }
             bottomShow=true
+            //tuve que agregar esta línea para manejar los márgenes, ya que el bottomBavigationView me hacia overlap  con el contenido de la lista
             hostFragment.setPadding(0,0,0,80)
 
         }
