@@ -2,25 +2,25 @@
 
 Desarrollo de tienda móvil utilizando Android Nativo aplicando los conocimientos aprendidos durante la Academia Naranja X. 
 
-## Objetivo
+## Objetivo🎯
 BeduShop es una tienda para dispositivos Android que permite a los usuarios registrarse y vender o comprar productos de manerá rapida y segura.
 
-##Herramientas utilizadas
+## Herramientas utilizadas🔧
 Para el desarrollo de esta aplicación, se utilizaron:
 * [Android Studio](https://developer.android.com/studio?hl=es).
 * [Kotlin](https://developer.android.com/kotlin?hl=es-419)
 * [Jetpack](https://developer.android.com/jetpack?hl=es-419)
 * [GSON](https://github.com/google/gson/blob/master/UserGuide.md)
-* [OkHttp]
-* [Realm]
-* [Coil]
+* [OkHttp](https://square.github.io/okhttp/)
+* [Realm](https://realm.io/)
+* [Coil](https://coil-kt.github.io/coil/)
 
 
-##Utilización
+## Instalación📦
 
 Para correr la aplicación clonar el repositorio y abrir utilizando Android Studio
 
-##Características de diseño e implementación
+## Características de diseño e implementación
 
 El diseño de la aplicación se divide en una serie de etapas que se describen en las siguientes entradas:
 
