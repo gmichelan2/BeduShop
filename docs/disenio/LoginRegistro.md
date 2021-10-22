@@ -1,4 +1,12 @@
 # Registro y Login
+
+El registro consiste en un fragmento que solicita datos.
+Para que este sea exitoso el usuario debe llenar todos los campos. 
+El campo "email" corrobora que la cadena ingresada tenga el formato de correo electónico contrastándola utilizando Regex.
+Los mensajes de error se muestran en color rojo usando un smalltext debajo del campo.
+ [Image text](../imagenes/Registro.png)
+
+
 El logín consiste de dos campos, email y contraseña, y un botón de inicio de sesión.
 Para que el acceso sea satisfactorio, ambos campos deben estar completos y el mail debe estar en formato correcto, si alguna de estas condiciones no se cumple la interfaz te avisará con un mensaje y un gráfico de error. 
 Por el momento los usuarios permitidos son los siguientes (acompañados de cualquier contraseña) :
