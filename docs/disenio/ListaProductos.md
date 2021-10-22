@@ -1,4 +1,4 @@
-# Lista de productos📋
+# Lista de productos 📋
 
 La lista de productos, consiste en un RecyclerView dentro de un fragmento.
 Durante la cursada, la carga de los productos se realizó de 3 maneras distintas a medida que los temas iban evolucionando:
