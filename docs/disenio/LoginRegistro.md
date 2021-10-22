@@ -4,7 +4,7 @@ El registro consiste en un fragmento que solicita datos.
 Para que este sea exitoso el usuario debe llenar todos los campos. 
 El campo "email" corrobora que la cadena ingresada tenga el formato de correo electónico contrastándola utilizando Regex.
 Los mensajes de error se muestran en color rojo usando un smalltext debajo del campo.
- [Image text](../imagenes/Registro.png)
+ ![Registro](../imagenes/Registro.png)
 
 
 El logín consiste de dos campos, email y contraseña, y un botón de inicio de sesión.
