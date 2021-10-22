@@ -1,4 +1,4 @@
-![Image text](/imagenes/bedu_sin_fondo.png)
+![Image text](imagenes/bedu_sin_fondo.png)
 
 # BeduShop
 
