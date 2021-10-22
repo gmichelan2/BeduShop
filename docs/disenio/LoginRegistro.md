@@ -1,15 +1,19 @@
 # Registro y Login
 
+## Registro
+
 El registro consiste en un fragmento que solicita datos.
 Para que este sea exitoso el usuario debe llenar todos los campos. 
 El campo "email" corrobora que la cadena ingresada tenga el formato de correo electónico contrastándola utilizando Regex.
 Los mensajes de error se muestran en color rojo usando un smalltext debajo del campo.<br>
 
-<div style="text-align:center;">
- <img src="../imagenes/Registro.png" width="250px" height="500px">
-</div>
 
-El logín consiste de dos campos, email y contraseña, y un botón de inicio de sesión.
+ <img src="../imagenes/Registro.png" width="270px" height="500px">
+
+
+## Login
+
+El logín consiste de dos campos (email y contraseña) y un botón de inicio de sesión.
 Para que el acceso sea satisfactorio, ambos campos deben estar completos y el mail debe estar en formato correcto, si alguna de estas condiciones no se cumple la interfaz te avisará con un mensaje y un gráfico de error. 
 Por el momento los usuarios permitidos son los siguientes (acompañados de cualquier contraseña) :
 
@@ -27,3 +31,5 @@ Por el momento los usuarios permitidos son los siguientes (acompañados de cualq
 * rachel.howell@reqres.in
 
 En el backend el proceso de login verifica, mediante un POST a una API llamada [REQ|RES](https://reqres.in/api/login) utilizando OkHttp, si la respuesta que recibe es un token, de ser así permite el acceso y en caso contrario emite un mensaje utilizando un Snackbar. 
+
+<img src="../imagenes/login.png"width=" 270px" height="500px" >

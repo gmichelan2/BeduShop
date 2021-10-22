@@ -47,7 +47,6 @@ class ProductListFragment() : Fragment() {
         listener={ product: Product, imageView: ImageView ->
             val action= ProductListFragmentDirections.actionProductListFragment2ToProductDetailFragment2(product)
 
-
             val extras= FragmentNavigatorExtras(
                 imageView to "product_transition"
             )
@@ -64,7 +63,7 @@ class ProductListFragment() : Fragment() {
     //cargo los productos al adaptador desde una base de datos usando realm
     private fun loadProducts(){
         val realm= Realm.getDefaultInstance()
-        val productos= realm.where(realm.Product::class.java).findAll()
+        val productos= realm.where(Product::class.java).findAll()
         progressBar.visibility=View.GONE
         recycler.adapter= ShopRecyclerAdapter(productos,listener)
     }
