@@ -1,4 +1,4 @@
-                               <img src="imagenes/bolsa_sin_fondo.png" width=" 100px" height="100px">
+![Image text](/imagenes/bedu_sin_fondo.png)
 
 # BeduShop
 

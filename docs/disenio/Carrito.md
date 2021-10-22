@@ -1,4 +1,4 @@
-#Carrito
+# Carrito
 
 Este fragmento contiene un RecyclerView, un botón y un ConstraintLayout que contiene una imágen, un texto y un botón. 
 Al iniciar el fragmento, se consulta en la base de datos creada con Realm, la colección de elementos del carrito (Cart) para ver si hay productos. En caso positivo se muestran seguidos de un botón para pagar, en caso negativo, se oculta el botón de pago y se visibiliza el layout de carrito vacío.
