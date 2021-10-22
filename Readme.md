@@ -34,6 +34,7 @@ El diseño de la aplicación se divide en una serie de etapas que se describen e
 * [Listas de productos](docs/disenio/ListaProductos.md)
 * [Detalle de productos](docs/disenio/DetalleProductos.md)
 * [Carrito](docs/disenio/Carrito.md)
+* [Pago](docs/disenio/Pago.md)
 * [Perfil de usuario](docs/disenio/PerfilUsuario.md)
 * [Navegación](docs/disenio/Navegacion.md)
 

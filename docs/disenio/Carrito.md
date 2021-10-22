@@ -17,3 +17,7 @@ Para que esto funcione de manera correcta es atender cada cambio en la base de d
 Una propuesta para mejorar esto sería agregar un observador para que realice las modificaciones cuando detecte un cambio en la base de datos.
 
 <img src="../imagenes/carrito.png" width="270px" height="500px" >
+
+Cuando el carrito esta vacío aparece una imagen y un boton que deriva a la pantalla de la lista de productos.
+
+<img src="../imagenes/carritovacio.png" width="270px" height="500px" >

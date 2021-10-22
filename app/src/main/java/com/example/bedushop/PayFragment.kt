@@ -43,9 +43,9 @@ class PayFragment: Fragment() {
         val safeArgs:PayFragmentArgs by navArgs()
         val subt=safeArgs.total
 
-        paySubtotal.text=subt
+        paySubtotal.text=(Math.round(subt.toDouble() * 100.0) / 100.0).toString()
 
-        payTotal.text=(subt.toDouble()+30).toString()
+        payTotal.text=(Math.round((subt.toDouble()+30) * 100.0) / 100.0).toString()
 
         btnPay.setOnClickListener {
             val realm= Realm.getDefaultInstance()
