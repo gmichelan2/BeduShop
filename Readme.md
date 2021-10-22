@@ -1,4 +1,8 @@
-![Image text](docs/imagenes/bedu_sin_fondo.png){:height="100px" width="100px"}
+++++
+<p align="center">
+  <img width="460" height="300" src="docs/imagenes/bedu_sin_fondo.png">
+</p>
+++++
 
 # BeduShop
 
