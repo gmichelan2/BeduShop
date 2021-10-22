@@ -1,4 +1,4 @@
-![Image text](docs/imagenes/bedu_sin_fondo.png)
+![Image text](docs/imagenes/bedu_sin_fondo.png{width=100px height=100px})
 
 # BeduShop
 
