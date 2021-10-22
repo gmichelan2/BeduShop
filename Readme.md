@@ -1,3 +1,5 @@
+<img src="../imagenes/bolsa_bedu.xml" width=" 270px" height="500px" >
+
 # BeduShop
 
 Desarrollo de tienda móvil utilizando Android Nativo aplicando los conocimientos aprendidos durante la Academia Naranja X. 
