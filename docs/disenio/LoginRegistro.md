@@ -32,4 +32,4 @@ Por el momento los usuarios permitidos son los siguientes (acompañados de cualq
 
 En el backend el proceso de login verifica, mediante un POST a una API llamada [REQ|RES](https://reqres.in/api/login) utilizando OkHttp, si la respuesta que recibe es un token, de ser así permite el acceso y en caso contrario emite un mensaje utilizando un Snackbar. 
 
-<img src="../imagenes/login.png"width=" 270px" height="500px" >
+<img src="../imagenes/login.png" width=" 270px" height="500px" >

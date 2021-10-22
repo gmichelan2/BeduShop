@@ -1,4 +1,4 @@
-# Lista de productos
+# Lista de productos📋
 
 La lista de productos, consiste en un RecyclerView dentro de un fragmento.
 Durante la cursada, la carga de los productos se realizó de 3 maneras distintas a medida que los temas iban evolucionando:
@@ -27,4 +27,4 @@ Cada ítem de la lista tiene asignado un listener que al seleccionarse, guarda e
         }
 ```
 
-<img src="../imagenes/listaProductos.png"width=" 270px" height="500px" >
+<img src="../imagenes/listaProductos.png" width=" 270px" height="500px" >
