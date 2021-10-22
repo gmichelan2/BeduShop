@@ -5,8 +5,8 @@ Para que este sea exitoso el usuario debe llenar todos los campos.
 El campo "email" corrobora que la cadena ingresada tenga el formato de correo electónico contrastándola utilizando Regex.
 Los mensajes de error se muestran en color rojo usando un smalltext debajo del campo.<br>
 
-<div>
- <img src="../imagenes/Registro.png" width="200px" height="500px">
+<div style="text-align:center;">
+ <img src="../imagenes/Registro.png" width="250px" height="500px">
 </div>
 
 El logín consiste de dos campos, email y contraseña, y un botón de inicio de sesión.
