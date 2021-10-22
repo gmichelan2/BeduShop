@@ -1,4 +1,4 @@
-<img src="../imagenes/bolsa_bedu.xml" width=" 270px" height="500px" >
+<img src="../imagenes/bolsa_sin_fondo.png" width=" 100px" height="100px" >
 
 # BeduShop
 
